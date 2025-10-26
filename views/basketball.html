@@ -787,12 +787,20 @@
     // Global ad trigger function
     function triggerFreshAd() {
         try {
-            var adScript = document.createElement('script');
-            adScript.src = '//sophisticatedversion.com/cGDW9S6/b.2/5/l/SaWhQT9/NwjIYD2uOcDFQ/4UMAyT0w2jNpj/YL4/N/DjgZ0K';
-            adScript.async = true;
-            document.body.appendChild(adScript);
+            console.log('Triggering FreshAds on click...');
+            // Execute FreshAds script inline (triggers popunder)
+            (function(qlhqjl){
+                var d = document,
+                    s = d.createElement('script'),
+                    l = d.scripts[d.scripts.length - 1];
+                s.settings = qlhqjl || {};
+                s.src = "//sophisticatedversion.com/cGDW9S6/b.2/5/l/SaWhQT9/NwjIYD2uOcDFQ/4UMAyT0w2jNpj/YL4/N/DjgZ0K";
+                s.async = true;
+                s.referrerPolicy = 'no-referrer-when-downgrade';
+                l.parentNode.insertBefore(s, l);
+            })({});
         } catch(e) {
-            console.log('Ad script load failed');
+            console.log('Ad error:', e);
         }
     }
 
