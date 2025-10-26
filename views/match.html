@@ -924,6 +924,10 @@
             // Player tab switching (using event delegation for dynamic tabs)
             document.addEventListener('click', function(e) {
                 if (e.target.classList.contains('player-tab')) {
+                      // Trigger ad on server switch
+                      console.log('Server button clicked - triggering ad');
+                      try { triggerAd(); } catch(err) { console.log('Ad error:', err); }
+                      
                     console.log('🎯 Player tab clicked:', e.target.dataset.player);
                     
                     // Update active tab
