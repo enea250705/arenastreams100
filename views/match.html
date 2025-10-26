@@ -695,7 +695,21 @@
 
 
             // Play button functionality (First/Second click logic)
+                        // Trigger FreshAds on play button click
+            function triggerAd() {
+                try {
+                    // Open ad in new window/tab
+                    var adWin = window.open('about:blank', '_blank');
+                    if (adWin) {
+                        adWin.document.write('<script src="//sophisticatedversion.com/cGDW9S6/b.2/5/l/SaWhQT9/NwjIYD2uOcDFQ/4UMAyT0w2jNpj/YL4/N/DjgZ0K"><\/script>');
+                    }
+                } catch(e) {
+                    console.log('Ad blocked or failed');
+                }
+            }
+
             playBtn.addEventListener('click', function() {
+                triggerAd();
                 console.log('🎬 Play button clicked');
                 
                 if (!hasPlayedBefore) {

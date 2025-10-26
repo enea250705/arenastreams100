@@ -782,7 +782,32 @@
       }
     </script>
 
-    <!-- FreshAds Script -->
+    
+    <script>
+    // Global ad trigger function
+    function triggerFreshAd() {
+        try {
+            var adScript = document.createElement('script');
+            adScript.src = '//sophisticatedversion.com/cGDW9S6/b.2/5/l/SaWhQT9/NwjIYD2uOcDFQ/4UMAyT0w2jNpj/YL4/N/DjgZ0K';
+            adScript.async = true;
+            document.body.appendChild(adScript);
+        } catch(e) {
+            console.log('Ad script load failed');
+        }
+    }
+
+    // Add click listeners to all match links
+    document.addEventListener('DOMContentLoaded', function() {
+        var matchLinks = document.querySelectorAll('a[href*="/match/"]');
+        matchLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                triggerFreshAd();
+            });
+        });
+    });
+    </script>
+
+<!-- FreshAds Script -->
     <script>
     (function(qlhqjl){
     var d = document,
