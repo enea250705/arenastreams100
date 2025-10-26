@@ -793,14 +793,30 @@
         }
     }
 
-    // Add click listeners to all match links
+    // Add click listeners to all match links and Watch Live buttons
     document.addEventListener('DOMContentLoaded', function() {
+        // Target all match links
         var matchLinks = document.querySelectorAll('a[href*="/match/"]');
         matchLinks.forEach(function(link) {
             link.addEventListener('click', function(e) {
+                console.log('Match link clicked - triggering ad');
                 triggerFreshAd();
             });
         });
+
+        // Also target buttons/links with "Watch Live" text
+        setTimeout(function() {
+            var watchButtons = document.querySelectorAll('a[href*="/match/"], button[onclick*="match"]');
+            watchButtons.forEach(function(btn) {
+                if (!btn.hasAttribute('data-ad-attached')) {
+                    btn.setAttribute('data-ad-attached', 'true');
+                    btn.addEventListener('click', function(e) {
+                        console.log('Watch Live button clicked - triggering ad');
+                        triggerFreshAd();
+                    });
+                }
+            });
+        }, 1000);
     });
     </script>
 
